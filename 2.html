@@ -4,20 +4,31 @@
     <title>CSS Font Control</title>
 </head>
 <body>
-    <p id="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel sapien et libero faucibus gravida. Curabitur nec ipsum in quam pretium ultrices. Nulla facilisi. Praesent sed nisi felis. Ut at enim nisi. In hac habitasse platea dictumst. Morbi euismod, nisi in interdum mollis, sapien ante gravida lorem, eget viverra sapien libero in libero. Phasellus tempor dolor at nulla auctor, vitae dignissim libero volutpat. Sed et eros eget metus imperdiet auctor at vitae quam. Vivamus eget nibh ac ante dictum vestibulum. Proin vel urna et arcu porttitor ullamcorper non condimentum magna.</p>
-    <input type="text" id="colorInput" placeholder="Enter RGB value">
-    <input type="number" id="borderWidthInput" placeholder="Enter border width">
-    <button onclick="applyStyles()">Apply</button>
+    <div id="text">This is some dummy text to demonstrate the color change.</div>
+
+    <label>Border R(0-255): <input type="number" id="borderR" min="0" max="255"></label><br>
+    <label>Border G(0-255): <input type="number" id="borderG" min="0" max="255"></label><br>
+    <label>Border B(0-255): <input type="number" id="borderB" min="0" max="255"></label><br>
+    <label>Border Width: <input type="number" id="borderWidth"></label><br>
+    <label>Background R(0-255): <input type="number" id="backgroundR" min="0" max="255"></label><br>
+    <label>Background G(0-255): <input type="number" id="backgroundG" min="0" max="255"></label><br>
+    <label>Background B(0-255): <input type="number" id="backgroundB" min="0" max="255"></label><br>
+
+    <button onclick="changeColor()">Change the color!</button>
 
     <script>
-        function applyStyles() {
-            var text = document.getElementById("text");
-            var color = document.getElementById("colorInput").value;
-            var borderWidth = document.getElementById("borderWidthInput").value;
+        function changeColor() {
+            var textElement = document.getElementById("text");
+            var rBorder = document.getElementById("borderR").value;
+            var gBorder = document.getElementById("borderG").value;
+            var bBorder = document.getElementById("borderB").value;
+            var borderWidth = document.getElementById("borderWidth").value;
+            var rBackground = document.getElementById("backgroundR").value;
+            var gBackground = document.getElementById("backgroundG").value;
+            var bBackground = document.getElementById("backgroundB").value;
 
-            text.style.color = color;
-            text.style.borderWidth = borderWidth + 'px';
-            text.style.borderStyle = 'solid';
+            textElement.style.border = borderWidth + 'px solid rgb(' + rBorder + ',' + gBorder + ',' + bBorder + ')';
+            textElement.style.backgroundColor = 'rgb(' + rBackground + ',' + gBackground + ',' + bBackground + ')';
         }
     </script>
 </body>
